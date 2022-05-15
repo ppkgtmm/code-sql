@@ -1,9 +1,9 @@
 (
-	SELECT DISTINCT subscriber
+	SELECT subscriber
 	FROM full_year
-    WHERE newspaper LIKE '%Daily%'
+	WHERE newspaper LIKE '%Daily%'
 	UNION
-    SELECT DISTINCT subscriber
+	SELECT subscriber
 	FROM half_year
 	WHERE newspaper LIKE '%Daily%'
 )
