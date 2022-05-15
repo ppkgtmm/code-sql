@@ -31,3 +31,21 @@
 ```sql
     SUBSTRING_INDEX(string, delimiter, n)
 ```
+
+- Concatenate column rows ordered by order_column(s) using separator
+
+```sql
+    GROUP_CONCAT(column ORDER BY order_column(s) SEPARATOR separator)
+```
+
+- Remove leading and trailing whitespaces from text
+
+```sql
+SELECT TRIM(text) AS trimmed_text
+```
+
+- Aggregate column values by multiplication
+
+```sql
+SELECT ROUND(EXP(SUM(LOG(column)))) AS product
+```
