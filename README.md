@@ -55,3 +55,28 @@ SELECT TRIM(text) AS trimmed_text
 SELECT ROUND(EXP(SUM(LOG(column)))) AS product
 ...
 ```
+
+- Select rows which set column contains i th item defined in set data type
+
+```sql
+...
+WHERE set_column & bit_value
+```
+
+bit_value (base 10) represents binary number with bit 1 at only the i th position
+
+- Select set column values as comma-separated string
+
+```sql
+SELECT set_column
+...
+```
+
+- Select set column as base 10
+
+```sql
+SELECT set_column + 0
+...
+```
+
+in case a row contain more than one item in set column, set element's base 10 values will be summed
