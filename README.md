@@ -80,3 +80,40 @@ SELECT set_column + 0
 ```
 
 in case a row contain more than one item in set column, set element's base 10 values will be summed
+
+- Extract value at tag's i th child from XML document
+
+```sql
+SELECT ExtractValue(xml_doc, '/tag/child[i]')
+...
+```
+
+- Create point object from x and y coordinates
+
+```sql
+SELECT Point(x, y) AS geom_value
+...
+```
+
+- Aggregate geometry values to get single geometry collection
+
+```sql
+SELECT ST_Collect(geom_value) AS geom_collection
+...
+```
+
+- Find convex hull of geometry collection
+
+```sql
+SELECT ST_ConvexHull(geom_collection) AS convex_hull
+...
+```
+
+convex hull is a shape that encloses a geom_collection with maximum area and minimum circumference
+
+- Calculate area of a shape
+
+```sql
+SELECT ST_Area(convex_hull) AS area
+...
+```
