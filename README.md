@@ -117,3 +117,10 @@ convex hull is a shape that encloses a geom_collection with maximum area and min
 SELECT ST_Area(convex_hull) AS area
 ...
 ```
+
+- Find text with pattern word surrounded by parentheses
+
+```sql
+...
+WHERE text_column REGEXP '\\(pattern\\)'
+```
