@@ -143,3 +143,17 @@ WHILE condition DO
     ...
 END WHILE;
 ```
+
+- Find euclidean distance between 2 coordinates
+
+```sql
+SELECT ST_Distance(Point(x1, y1), Point(x2, y2))
+...
+```
+
+- Convert date column values to specified format
+
+```sql
+SELECT DATE_FORMAT(date_column, format_string)
+...
+```
