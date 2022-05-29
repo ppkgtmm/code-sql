@@ -157,3 +157,71 @@ SELECT ST_Distance(Point(x1, y1), Point(x2, y2))
 SELECT DATE_FORMAT(date_column, format_string)
 ...
 ```
+
+- Add foreign key to table using predefined column(s)
+
+```sql
+...
+FOREIGN KEY (fk_column1, fk_column2, ...)
+REFERENCES parent_table (pk_column1, pk_column2, ...)
+-- below are optional
+ON UPDATE reference_option
+ON DELETE reference_option
+```
+
+example of foreign key reference options are
+
+    - RESTRICT : cannot delete parent table row when it was referenced
+    - CASCADE : delete parent table row along with referencing rows
+    - SET NULL : set the fk of referencing rows to null
+    - NO ACTION : delete parent table row but keep referencing rows
+    - SET DEFAULT : set the fk of referencing rows to the fk column's default value
+
+- Update multiple columns' values for rows satisfying specified condition
+
+```sql
+UPDATE table_name
+SET column1 = ..., column2 = ...
+WHERE condition
+```
+
+- Create new or replace existing view (a view is a query stored)
+
+```sql
+CREATE OR REPLACE VIEW view_name
+AS query
+```
+
+- Add columns to existing table
+
+```sql
+ALTER TABLE table_name
+ADD COLUMN column_name1 column_type constraints,
+ADD COLUMN column_name2 ....
+```
+
+- Define columns when creating table
+
+```sql
+CREATE TABLE table_name (
+    column_name1 column_type constraints,
+    column_name2 ....
+)
+```
+
+example of column constraints
+
+    - NOT NULL | NULL : column cannot | can contain null values
+    - CHECK (condition) : validation for row
+    - UNIQUE : column or combination of column value must ne unique
+    - PRIMARY KEY : unique and not null column or combination of columns
+    - DEFAULT <default-value> : specify default value for column
+
+constraints involving multiple columns can be defined after all columns' definition
+
+- Naming a constraint
+
+```sql
+...
+CONSTRAINT constraint_name constraint_definition
+```
