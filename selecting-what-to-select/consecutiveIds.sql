@@ -1,0 +1,3 @@
+SELECT id AS oldId, ROW_NUMBER() OVER(ORDER BY id) AS newId
+FROM itemIds
+ORDER BY 2;
