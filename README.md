@@ -225,3 +225,17 @@ constraints involving multiple columns can be defined after all columns' definit
 ...
 CONSTRAINT constraint_name constraint_definition
 ```
+
+- Check if subquery has returned any rows
+
+```sql
+...
+WHERE EXISTS subquery
+```
+
+- Get first non-null value from a list
+
+```sql
+SELECT COALESCE(value_1, value_2, value_3)
+...
+```
