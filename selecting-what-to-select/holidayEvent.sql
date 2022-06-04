@@ -4,6 +4,6 @@ WITH cte AS (
 )
 SELECT buyer_name
 FROM cte
-WHERE (row_num / 4) = FLOOR(row_num / 4)
+WHERE MOD(row_num, 4) = 0
 GROUP BY 1
 ORDER BY 1;
