@@ -128,9 +128,9 @@ WHERE text_column REGEXP '\\(pattern\\)'
 - Define a variable with single value
 
 ```sql
-SET @variable1 = constant
-SET @variable2 = DATETIME(constant)
-SET @variable3 = (SELECT ... LIMIT 1)
+SET @variable1 = constant;
+SET @variable2 = DATETIME(constant);
+SET @variable3 = (SELECT ... LIMIT 1);
 ```
 
 if variable has multiple values, use a temporary table (which stays until session is terminated) instead
@@ -239,3 +239,18 @@ WHERE EXISTS subquery
 SELECT COALESCE(value_1, value_2, value_3)
 ...
 ```
+
+- Define a function having input parameters and return value
+
+```sql
+CREATE FUNCTION function_name(param1 parame1_type, param2 parame2_type, ...) RETURNS return_value_type characteristic
+BEGIN
+    ...
+    RETURN return_value;
+END;
+```
+
+function characteristic can be
+
+    - DETERMINISTIC : function returns same output value if the same input parameters were specified
+    - NOT DETERMINISTIC : function may return different output value though the same input parameters were specified
