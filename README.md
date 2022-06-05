@@ -125,7 +125,7 @@ SELECT ST_Area(convex_hull) AS area
 WHERE text_column REGEXP '\\(pattern\\)'
 ```
 
-- Define a variable with single value
+- Initialize user-defined variable (single value)
 
 ```sql
 SET @variable1 = constant;
@@ -133,7 +133,7 @@ SET @variable2 = DATETIME(constant);
 SET @variable3 = (SELECT ... LIMIT 1);
 ```
 
-if variable has multiple values, use a temporary table (which stays until session is terminated) instead
+if a variable has multiple values, use a temporary table (which stays until session is terminated) instead
 
 - Iterate using while loop
 
