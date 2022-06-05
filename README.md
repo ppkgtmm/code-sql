@@ -254,3 +254,53 @@ function characteristic can be
 
     - DETERMINISTIC : function returns same output value if the same input parameters were specified
     - NOT DETERMINISTIC : function may return different output value though the same input parameters were specified
+
+- Access metadata of tables or columns in specified database
+
+```sql
+...
+FROM information_schema.tables
+WHERE TABLE_SCHEMA = target_db_name
+```
+
+or
+
+```sql
+...
+FROM information_schema.columns
+WHERE TABLE_SCHEMA = target_db_name
+```
+
+- Declare local variable(s) - can only be done at the start of a scope (a scope is bounded by a `BEGIN` and `END` pair)
+
+```sql
+BEGIN
+	DECLARE variable_name1 variable_type1 DEFAULT default_value1;
+	DECLARE variable_name2 variable_type2; -- default value is null
+END
+```
+
+- Traverse over records in database using cursor
+
+```sql
+DECLARE done_flag INT DEFAULT FALSE;
+DECLARE cursor_name CURSOR FOR select_statement;
+
+/* set done flag to true when traversal is complete */
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET done_flag = TRUE;
+
+/* store column values returned by select_statement */
+DECLARE variable_name1 variable_type1;
+DECLARE variable_name2 variable_type2;
+
+OPEN cursor_name;
+
+loop_name: LOOP
+    FETCH cursor_name INTO variable_name1, variable_name2;
+    IF done_flag THEN
+        LEAVE loop_name;
+    END IF;
+    ...
+END LOOP;
+CLOSE cursor_name;
+```
