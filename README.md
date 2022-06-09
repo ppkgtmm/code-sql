@@ -305,3 +305,17 @@ loop_name: LOOP
 END LOOP;
 CLOSE cursor_name;
 ```
+
+- Get remainder after division
+
+```sql
+SELECT MOD(numerator, denominator)
+...
+```
+
+- Get character from its integer ascii code
+
+```sql
+SELECT CHAR(ascii_code)
+...
+```
