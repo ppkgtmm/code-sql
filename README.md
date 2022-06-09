@@ -276,7 +276,9 @@ WHERE TABLE_SCHEMA = target_db_name
 ```sql
 BEGIN
 	DECLARE variable_name1 variable_type1 DEFAULT default_value1;
-	DECLARE variable_name2 variable_type2; -- default value is null
+    /* default value is null */
+	DECLARE variable_name2 variable_type2;
+    ...
 END
 ```
 
