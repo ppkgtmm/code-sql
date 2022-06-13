@@ -319,3 +319,18 @@ SELECT MOD(numerator, denominator)
 SELECT CHAR(ascii_code)
 ...
 ```
+
+- Insert into table using data selected from other table
+
+```sql
+INSERT INTO destination_table_name
+SELECT column1, column2
+FROM source_table_name
+...
+```
+
+- Get number of rows affected by previous insert, update or delete statement
+
+```sql
+SELECT ROW_COUNT()
+```
