@@ -1,4 +1,4 @@
-# code-sql
+# Codesignal arcade database learnings
 
 - Order rows by a custom order for a field
 
